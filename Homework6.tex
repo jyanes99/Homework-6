@@ -1,0 +1,249 @@
+  \documentclass[11pt]{article} 
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{setspace}
+
+\input amssym.def
+\input amssym.tex
+
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\SC}{\mathcal{S}}
+\newcommand{\X}{\mathcal{X}}
+\newtheorem{Th}{Theorem}[section]
+\newtheorem{Pm}[Th]{Problem}
+\newtheorem{Pn}[Th]{Proposition}
+\newtheorem{Rk}[Th]{Remark}
+\newtheorem{Co}[Th]{Corollary}
+\newtheorem{Ex}[Th]{Example}
+\newtheorem{Exs}[Th]{Examples}
+\newtheorem{Le}[Th]{Lemma}
+\newtheorem{Rmks}[Th]{Remarks}
+\newtheorem{Rmk}[Th]{Remark}
+\newtheorem{Def}[Th]{Definition}
+\newtheorem{Prob}[Th]{Problem}
+\newtheorem{Prop}[Th]{Proposition}
+\newcommand{\aut}{{\rm Aut\/}}
+\newcommand{\mto}{\mapsto}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\s}{\sigma}
+\newcommand{\ord}{ord}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PLEASE PUT THE FOLLOWING TWO LINES IN THE HEAD MATTER OF 
+% ALL FUTURE LATEX FILES YOU SEND ME. IT ALLOWS ME TO PROVIDE 
+% COMMENTS IN YOUR DOCUMENT.
+
+\usepackage[usenames]{color}
+\def\comment#1{{\color{blue}{#1}}}
+
+% PLEASE PUT THE ABOVE TWO LINES IN THE HEAD MATTER OF 
+% ALL FUTURE LATEX FILES YOU SEND ME. IT ALLOWS ME TO PROVIDE 
+% COMMENTS IN YOUR DOCUMENT.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{Answer}
+{\textbf{Answer: }}
+{}
+
+
+\newenvironment{pf}%
+    {\par\noindent{\it \underline{Proof}\/: }\nopagebreak\normalsize}%
+    {\hfill\linebreak[0]\hspace*{\fill}$\square$\\[1pt]}
+
+
+\begin{document}
+
+\begin{flushright}
+Julia Yanes Barrera
+\end{flushright}
+
+
+\begin{center} {\LARGE MA 45300, Homework 6}
+\end{center} 
+ 
+\begin{center} { Due Monday, November 23, 2020}
+\end{center} 
+
+
+
+\begin{enumerate}
+\item This exercise involves $\Z_{12}$ and $\Z_{13}^*$. To avoid confusion, since each group involves equivalence classes, if $n$ is an integer,  let us denote the equivalence containing $n$ in $\Z_{12}$ by $[n]_{12}$ and the equivalence containing $n$ in $\Z_{13}^*$ by $[n]_{13}$.  Define $\phi: \Z_{12} \rightarrow \Z_{13}^*$ by $\phi([n]_{12}) = [2]^n_{13}$. Prove that $\phi$ is a group isomorphism. Note that part of your proof must be to show that  $\phi$ is well defined 
+
+In order to prove that $\phi$ is a group isomorphism, we have to prove that $\phi$ is a group homomorphism and that $\phi$ is a bijection. Then, to prove that $\phi$ is a group homomorphism, we first need to prove that it is well defined. 
+
+Let's assume that $[a]_{12}=[\widehat a]_{12}$. Then, to show that $\phi$ is well-defined, we need to show that
+\begin{center}
+$\phi([a]_{12})=\phi([\widehat a]_{12})$
+\end{center}
+
+Since, $\phi: \Z_{12} \rightarrow \Z_{13}^*$ by $\phi([n]_{12}) = [2]^n_{13}$, we have that
+\begin{center}
+$[2]^a_{13}=[2]^{\widehat a}_{13}$
+\end{center}
+
+Also, since we have assumed that $[a]_{12}=[\widehat a]_{12}$, we can say that $a\equiv \widehat a$ mod $12$. This means that $\widehat a=a+12j$ for some integer $j\in \R$. So, 
+
+\begin{center}
+$\phi([\widehat a]_{12})=\phi([a+12k]_{12})=[2]^{a+12k}_{13}$
+\end{center}
+On the other side, we know that 
+\begin{center}
+$\phi([a]_{12})=[2]^a_{13}$
+\end{center}
+So, since $2^a \in [2]^a_{13}$ and $2^a \in [2]^{a+12k}_{13}$, then $[2]^a_{13}\cap [2]^{a+12k}_{13}\neq\emptyset $. Therefore, we are proving that $\phi$ is well-defined. 
+
+Now, since we know that $\phi$ is well-defined, we can prove that $\phi$ is a group homomorphism. In order to do this, we need to show that 
+\begin{center}
+$\phi([a]_{12}[b]_{12})=\phi([a]_{12})\phi([b]_{12}) $
+\end{center}
+\begin{center}
+$\phi([a+b]_{12})=\phi([a]_{12})\phi([b]_{12}) $
+\end{center}
+\begin{center}
+$[2]^{a+b}_{13}=[2]^{a}_{13} [2]^{a}_{13}$
+\end{center}
+\begin{center}
+$[2]^{a+b}_{13}=[2]^{a+b}_{13}$
+\end{center}
+
+Then $\phi$ is a group homomorphism. 
+
+Now, we need to prove that $\phi$ is a bijection. To do so, we need to show that it is one-to-one and onto. 
+
+First, we prove if $ker(\phi)={e}$ $(1)$, then $\phi$ is one-to-one. Assume $ker(\phi)={e}$. Let $[a]_{12},[b]_{12}$ be elements of $\Z_{12}$, and assume $\phi([a]_{12})=\phi([b]_{12})$. We must prove that $[a]_{12},[b]_{12}$. Since 
+\begin{center}
+$\phi([a]_{12})=\phi([b]_{12})$, 
+\end{center}
+then
+\begin{center}
+$\phi([a]_{12}[b]^{-1}_{12})=\phi([a]_{12})\phi([b]^{-1}_{12})=\phi([a]_{12})(\phi([b]_{12}))^-1=\phi([a]_{12})(\phi([a]_{12}))^-1=[e]_{13}$
+\end{center}
+So, $[a]_{12},[b]^{-1}_{12}\in ker(\phi)$. From $(1)$, we know that $([a]_{12},[b]^{-1}_{12})=[e]_{12}$. Then, $[a]_{12}=[b]_{12}$ so $\phi$ is one-to-one. 
+
+If we know that $\phi$ is one-to-one, then we must prove that $ker(\phi)={e}$. 
+
+Now, since we know that $\phi$ is a group homomorphism, we know that it preserves the identity. Since $\phi$ is one-to-one, we know that the identity only maps to the identity and into nothing else. Then, $\phi([e]_{12})=[e]_{13}$. If we let $[a]_{12}=[e]_{12}$, then $\phi([a]_{12})=\phi([e]_{12})=[e]_{13}$
+
+By definition, $ker(\phi)=[e]$. So, this shows that $\phi$ is one-to-one.
+
+Now, we have to prove that $\phi$ is onto. 
+
+Let $[b]_{13}\in \Z_{13}^*$. Now we have to prove that $[a]_{12}\in \Z_{12}$ such that $\phi([a]_{12})=[b]_{13}$.
+
+If $[b]_{13}\in \Z_{13}^*$, we know that $[b]_{13}=[2]^a_{12}$, so we have proved that it is a bijection. 
+
+
+\item Let $G$ be any group. Prove that the function $\phi: G \rightarrow G$ defined by 
+$\phi(g) = g^{-1}$ is a group homomorphism if and only if $G$ is abelian. 
+
+In order to prove that $\phi$ is a group homomorphism if and only if $G$ is abelian, first we will assume that if $\phi$ is a group homomorphism, then $G$ is abelian . Then, we will assume tha $G$ is abelian and prove that $\phi$ is a group homomorphism.
+
+Let's assume $\phi$ is a group homomorphism. Hence, we need to show that $G$ is abelian. 
+
+Let's $g,h\in G $. Since $\phi$ is homomorphism we have that 
+
+\begin{center}
+$\phi(gh)=\phi(g)\phi(h)$
+\end{center}
+By the definition we are given, we know that $\phi(g) = g^{-1}$. Then,
+\begin{center}
+$(gh)^{-1}=g^{-1}h^{-1}$
+\end{center}
+
+\begin{center}
+$h^{-1}g^{-1}=g^{-1}h^{-1}$
+\end{center}
+
+This happens since,
+
+$(gh)(h^{-1}g^{-1})=g(hh^{-1})g^{-1}=geg^{-1}=gg^{-1}=e$
+
+Also, 
+
+$(hg)(g^{-1}h^{-1})=h(gg^{-1})h^{-1}=heh^{-1}=hh^{-1}=e$
+
+Now, if we take the inverse in both sides:
+
+\begin{center}
+$(h^{-1}g^{-1})^{-1}=(g^{-1}h^{-1})^{-1}$
+
+$hg=gh$
+\end{center}
+Therefore, it is abelian.
+Now, let's assume that $G$ is abelian and prove that $\phi$ is a group homomorphism. We need to prove that $\phi(gh)=\phi(g)\phi(h)$.
+
+By definition, we know that 
+\begin{equation}
+  \begin{aligned}
+    \phi(gh) &=(gh)^{-1}\\ 
+    & =h^{-1}g^{-1}\\ 
+    & = g^{-1}h^{-1}\\ 
+    \end{aligned}
+\end{equation}
+
+We can do this last step because we assumed that $G$ is abelian. Hence, we have proved that the function $\phi: G \rightarrow G$ defined by 
+$\phi(g) = g^{-1}$ is a group homomorphism if and only if $G$ is abelian. 
+
+
+\vspace{.2in}
+
+
+\item Let $G$ be any group. Prove that the function $\phi: G \rightarrow G$ defined by 
+$\phi(g) = g^{2}$ is a group homomorphism if and only if $G$ is abelian.
+
+In order to prove that $\phi$ is a group homomorphism if and only if $G$ is abelian, first we will assume that if $\phi$ is a group homomorphism, then $G$ is abelian . Then, we will assume tha $G$ is abelian and prove that $\phi$ is a group homomorphism.
+
+Let's assume $\phi$ is a group homomorphism. Then, we need to show that $G$ is abelian. 
+
+Let's $g,h\in G $. Since $\phi$ is homomorphism we have that 
+
+\begin{center}
+$\phi(gh)=\phi(g)\phi(h)$
+\end{center}
+
+\begin{center}
+$(gh)^{2}=g^{2}h^{2}$
+\end{center}
+
+Now, we will multiply by $g^{-1}$ and $h^{-1}$ on both sides of the equation in the following way:
+
+\begin{center}
+$g^{-1}(gh)^{2}h^{-1}=g^{-1}(g^{2}h^{2})h^{-1}$
+\end{center}
+\begin{center}
+$g^{-1}(gh)(gh)h^{-1}=g^{-1}(g^{2})(h^{2})h^{-1}$
+\end{center}
+\begin{center}
+$hg=gh$
+\end{center}
+
+Then, we have proved that $G$ is abelian. 
+
+
+Now, let's assume that $G$ is abelian and prove that $\phi$ is a group homomorphism. We need to prove that $\phi(gh)=\phi(g)\phi(h)$.
+
+By definition, we know that 
+\begin{equation}
+  \begin{aligned}
+    \phi(gh) &=(gh)^{2}\\ 
+    & = (gh)(gh) \\
+    & =(gg)(hh)\\ 
+    & =g^2h^2\\
+    & =\phi(g)\phi(h)
+    \end{aligned}
+\end{equation}
+
+We can do this last step because we assumed that $G$ is abelian. Hence, we have proved that the function $\phi: G \rightarrow G$ defined by 
+$\phi(g) = g^{2}$ is a group homomorphism if and only if $G$ is abelian. 
+
+\end{enumerate}
+\end{document}
+
